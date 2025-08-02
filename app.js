@@ -8,7 +8,7 @@ const cartOverlay = document.querySelector('.cart-overlay');
 const cartItems = document.querySelector('.cart-items');
 const cartTotal = document.querySelector('.cart-total');
 const cartContent = document.querySelector('.cart-content');
-const productsDOM = document.querySelector('products-center');
+const productsDOM = document.querySelector('.products-center');
 
 // cart
 let cart = [];
@@ -45,19 +45,20 @@ class UI {
 				<article class="product">
 					<div class="img-container">
 						<img
-							src="./images/product-1.jpeg"
+							src=${product.image}
 							alt="product"
 							class="product-img" />
-						<button class="bag-btn" data-id="1">
+						<button class="bag-btn" data-id=${product.id}>
 							<i class="fas fa-shopingcard"> add to bag </i>
 						</button>
 					</div>
-					<h3>queen bed</h3>
-					<h4>$16</h4>
+					<h3>${product.title}</h3>
+					<h4>$${product.price}</h4>
 				</article>
 				<!-- end of single product -->
 			`;
 		});
+		productsDOM.innerHTML = result;
 	}
 }
 
