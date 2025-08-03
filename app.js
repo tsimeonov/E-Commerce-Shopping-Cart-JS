@@ -60,6 +60,9 @@ class UI {
 		});
 		productsDOM.innerHTML = result;
 	}
+	getBagButtons() {
+		const btns = document.querySelectorAll('.bag-btn');
+	}
 }
 
 // local storage
@@ -74,8 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
 	const products = new Products();
 
 	// get all products
-	products.getProducts().then((products) => {
-		ui.displayProducts(products);
-		Storage.saveProducts(products);
-	});
+	products
+		.getProducts()
+		.then((products) => {
+			ui.displayProducts(products);
+			Storage.saveProducts(products);
+		})
+		.then(() => {
+			ui.getBagButtons();
+		});
 });
