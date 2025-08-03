@@ -61,7 +61,8 @@ class UI {
 		productsDOM.innerHTML = result;
 	}
 	getBagButtons() {
-		const btns = document.querySelectorAll('.bag-btn');
+		const btns = [...document.querySelectorAll('.bag-btn')];
+		console.log(btns);
 	}
 }
 
